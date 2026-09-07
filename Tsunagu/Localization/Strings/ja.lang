@@ -1,0 +1,223 @@
+# ケーブル診断 Tsunagu — 日本語
+# 書式: キー = 文言   /  {0} などは差し込み位置。順番を変えないでください。
+# \n で改行。行頭の # は注釈。
+
+_name = 日本語
+uiFont = Yu Gothic UI, Meiryo UI, Segoe UI
+
+# ---- 全体 ----
+appTitle = ケーブル診断 Tsunagu
+langLabel = 言語
+saveReport = レポートを保存
+tabConnection = 接続診断
+tabSpeed = 転送速度
+tabStability = 接続の安定性
+tabPower = 給電
+tabHelp = 使い方
+
+# ---- 見出し帯 ----
+headStart = 診断する
+headStartSub = 調べたい機器をケーブルでつないでから、下の「診断する」を押してください。
+headNoDevice = 機器が見つかりません
+headNoDeviceSub = 調べたいケーブルで機器をつないでから、もう一度診断してください。充電は進むのに何も出てこない場合、そのケーブルは充電専用です。
+headFaults = {0} 件の問題
+headFaultsSub = ケーブルの交換で直る可能性が高い項目があります。下の赤い行を確認してください。
+headCautions = {0} 件の注意
+headCautionsSub = 本来より遅い、または構成に無理がある接続があります。
+headOk = 問題なし
+headOkSub = {0} 台すべてが規格どおりの速度でつながっています。
+headStable = 安定
+headDetach = 切断 {0} 回
+reportSaved = レポートを保存しました: {0}
+
+# ---- 接続診断 ----
+connHint = つながっている機器の「対応している速度」と「実際に出ている速度」を比べます。差があれば、ケーブルかポートが足を引っぱっています。
+btnScan = 診断する
+chkEmptyPorts = 空きポートも表示
+scanning = 確認しています…
+scanDone = {0} 台の機器を確認しました（{1}）
+scanFailed = 読み取りに失敗しました: {0}
+
+# ---- 転送速度 ----
+speedHint = USB メモリーや外付けドライブに実データを書いて読み戻し、ケーブルを通る実効速度を測ります。測定用の一時ファイルは終了時に削除します。
+lblDrive = ドライブ
+btnReload = 再読み込み
+lblSize = サイズ
+btnMeasure = 測定する
+btnCancelMeasure = 中止
+colWrite = 書き込み
+colRead = 読み出し
+speedNote = 測定値はケーブルだけでなく記録メディアの性能にも左右されます。同じドライブで、ケーブルだけを差し替えて比べるのがいちばん確実です。
+benchSelectDrive = 測定するドライブを選んでください。
+benchNoSpace = 空き容量が足りません。小さいサイズを選ぶか、別のドライブにしてください。
+benchCancelled = 測定を中止しました。
+benchDone = {0} を {1} MB で測定（{2}）
+benchProgWrite = 書き込み中… {0}%
+benchProgRead = 読み出し中… {0}%
+benchErrCreate = テスト用ファイルを作成できませんでした。書き込み可能なドライブを選んでください。
+benchErrWrite = 書き込みに失敗しました。空き容量とケーブルの接続を確認してください。
+benchErrRead = 読み出しに失敗しました。転送中に接続が切れた可能性があります。
+bench20 = USB 3.2 Gen 2x2（20Gbps）相当の実効速度です。2 レーンでリンクしています。
+bench10 = USB 3.2 Gen 2x1（10Gbps／旧称 USB 3.1 Gen 2）相当の実効速度です。
+bench5 = USB 3.2 Gen 1（5Gbps／旧称 USB 3.0）相当の実効速度です。
+benchUsb2 = USB 2.0（480Mbps）相当の頭打ちです。機器が USB 3.x 対応なら、ケーブルが USB 2.0 用か、内部で断線している可能性があります。ただし記録メディア自体が遅い場合もこの値になります。
+benchSlow = 実効速度が極端に低い状態です。ケーブルの接触不良、延長しすぎ、または記録メディアの劣化が疑われます。別のケーブルで再測定してください。
+driveNoLabel = (ラベルなし)
+driveDisplay = {0}  {1}  ［{2}／空き {3} GB］
+busOther = その他
+
+# ---- 接続の安定性 ----
+stabHint = 監視中にケーブルを軽く動かしたり、根元を曲げたりしてください。断線しかけたケーブルは、ここで切断として現れます。
+btnMonitorStart = 監視を開始
+btnMonitorStop = 監視を終了
+stabIdle = 「監視を開始」を押すと、切断と再接続を数えはじめます。
+stabPrompt = 監視中です（{0}）。ケーブルの根元やコネクタを軽く動かしてみてください。
+stabNoEvents = {0} のあいだ、切断は 1 度も起きていません。接続は安定しています。
+stabFew = {0} のあいだに切断 {1} 回、再接続 {2} 回。自分で抜き差しした覚えがなければ、コネクタの緩みを確認してください。
+stabMany = {0} のあいだに切断 {1} 回、再接続 {2} 回。断線しかけたケーブル、または端子の摩耗に典型的な挙動です。交換をおすすめします。
+stabStatus = 監視中 {0}　切断 {1} 回／再接続 {2} 回
+logStart = {0}  監視を開始しました（{1} 台を認識）
+logStop = {0}  監視を終了しました（{1} 経過）
+logAttach = {0}  接続: {1}
+logDetach = {0}  切断: {1}
+
+# ---- 給電 ----
+powHint = 調べたいケーブルでこの PC を充電しながら測ると、そのケーブルが実際に何ワット流せているかがわかります。
+btnMeasurePower = 測定する
+chkAutoRefresh = 2 秒ごとに更新
+colWatt = 流れている電力
+colVolt = 電圧
+colBattery = バッテリー残量
+powNote = バッテリーのないデスクトップ PC では測定できません。その場合はスマートフォン側の充電表示で比べてください。
+powNoBattery = この PC にはバッテリーがないため、給電の測定はできません。スマートフォンなどを充電しているケーブルは、スマートフォン側の「急速充電中」表示で判断してください。
+powNoSource = 外部から給電されていません。調べたいケーブルで充電器につないでから測定してください。
+powDischarging = つないでいるのに放電しています（{0} W 消費）。ケーブルまたは充電器の出力が、PC の消費電力に足りていません。
+powHigh = {0} W で充電中です。USB PD の高出力で給電できています。
+powGood = {0} W で充電中です。USB PD として十分な給電量です。
+powLow = {0} W で充電中です。もっと速く充電できるはずの環境なら、ケーブルが PD 非対応（またはコネクタの接触不良）の可能性があります。
+powVeryLow = {0} W しか流れていません。充電専用の細いケーブルか、電源線が傷んでいるケーブルの典型的な値です。
+powUnknown = 充電レートを取得できませんでした。満充電のときや、レート報告に対応しないバッテリーではこうなります。
+
+# ---- 使い方 ----
+helpStepsTitle = ケーブルの良し悪しを切り分ける手順
+helpStep1 = 1. 調べたいケーブルで機器をつなぎ、［接続診断］で速度が頭打ちになっていないか見ます。
+helpStep2 = 2. USB ストレージなら［転送速度］で実測します。
+helpStep3 = 3. ［接続の安定性］を動かしたままケーブルを軽く曲げ、切断が出ないか確かめます。
+helpStep4 = 4. 充電用途なら［給電］で何ワット流れているかを見ます。
+helpStep5 = 5. 同じ機器・同じポートのまま、ケーブルだけを別のものに差し替えて 1 から繰り返すと、原因がケーブルか機器かがはっきりします。
+helpChargeTitle = 機器を挿しても何も出てこないとき
+helpChargeBody = ［接続診断］に機器がまったく現れず、充電だけは進む場合、そのケーブルはデータ線がつながっていない充電専用ケーブルです。付属品や安価なケーブルにはよくあります。データ線が断線している場合も同じ症状になります。
+helpNamesTitle = USB の呼び名の対応
+helpNamesNote = 同じ速度に三通りの名前があります。接続診断では、現行名・旧称・表示名をまとめて出しています。
+colTotal = 合計速度
+colCurrentName = 現行の正式名
+colLegacy = 旧称
+colMarketing = 表示名
+helpNoLegacy = なし（USB 3.2 で新設）
+helpLegacyGen1 = USB 3.0／USB 3.1 Gen 1
+helpLegacyGen2 = USB 3.1 Gen 2
+helpLimitTitle = どこまで識別できるか
+helpLimit1 = レーンあたりの速度（5Gbps か 10Gbps か、つまり Gen 1 か Gen 2 か）は、機器の BOS ディスクリプタから Gbps 単位で読み取っているので確実に区別できます。
+helpLimit2 = USB 3.0 と USB 3.1 Gen 1 は、どちらも同じ 5Gbps の同じ規格です。実体が同じなので、どんなツールでも区別できません。
+helpLimit3 = 10Gbps（Gen 2x1）と 20Gbps（Gen 2x2）は、Windows がどちらも SuperSpeedPlus としてしか報告しません。機器が 2 レーン前提だと申告している場合はそう表示しますが、最終的な確認は［転送速度］タブの実測値で行ってください。おおむね毎秒 1,000MB を超えていれば 20Gbps でつながっています。
+helpUnknownTitle = このアプリでわからないこと
+helpUnknownBody = ソフトウェアから見えるのは、機器をつないだ状態での通信の結果だけです。ケーブル単体の抵抗値、E-Marker チップの中身、シールドの質などは測れません。ケーブルを何も挿さずに検査したい場合は、専用のケーブルテスターが必要です。
+helpColorTitle = 判定の色
+helpColorGood = 緑 … 規格どおりに動いています。
+helpColorCaution = 橙 … 本来より遅い、または構成に無理があります。
+helpColorFault = 赤 … ケーブルの交換を検討してください。
+helpLangTitle = 言語を追加する
+helpLangBody = 実行ファイルと同じ場所に lang フォルダーを作り、既存の言語ファイルをコピーして訳を入れ替えると、再ビルドなしで言語が増えます。ファイル名が言語コードになります（例: fr.lang）。
+
+# ---- ツリー表示 ----
+ctrlDefault = USB ホストコントローラー
+ctrlOpenFail = コントローラーを開けませんでした
+rootHubFail = ルートハブ名を取得できませんでした
+hubRoot = ルートハブ（PC 内蔵）
+hub20 = USB 2.0 ハブ
+hub30 = USB 3.x ハブ
+hubGeneric = USB ハブ
+hubSub = {0}／{1} ポート
+portTitle = ポート {0}: {1}
+portEmptyTitle = ポート {0}（未接続）
+portLabel = ポート {0}
+portStateFail = 状態を取得できませんでした
+linkPrefix = 現在のリンク: {0}
+capPrefix = 機器の能力: {0}
+portPrefix = ポート: {0}
+sepSlash = ／
+genOperating = {0} で動作中
+genSpeedParen = （{0}）
+genLegacyPart = ／旧称 {0}
+genMarketingPart = ／表示名 {0}
+linkSsp = USB 3.2 Gen 2（10Gbps／レーン）で動作中　※2 レーン（Gen 2x2・20Gbps）かどうかは OS からは判別できません。［転送速度］タブの実測値で確認してください
+capNoBosSsp = 10Gbps 対応（ハブからの報告。BOS 情報は取得できず）
+capNoBosSs = 5Gbps 対応（ハブからの報告。BOS 情報は取得できず）
+capNoBosUsb3 = USB 3.x 対応と申告（詳細は取得できず）
+capNoBosGeneric = USB {0} 機器
+capUsb2Only = USB 2.0 以下（対応速度 {0}）
+capUnknown = 不明
+capMain = 最大 {0}／レーン → {1}
+capLegacyPart = （旧称 {0}）
+capSpeedsPart = 　対応速度 {0}
+capTwoLane = 　2 レーン前提の機器
+capPd = 　PD 対応
+capAltMode = 　Alternate Mode あり
+portTypeC = USB Type-C コネクタ
+portNotTypeC = Type-C 以外（Type-A など）
+portUsb3 = ポートは USB 3.x 対応
+portUsb2Only = ポートは USB 2.0 まで
+portHub3 = USB 3.x ハブのポート
+portCompanion = USB 2.0 側と対になったポート
+portInternal = 内部接続（本体内蔵）
+idText = VID_{0} PID_{1}／規格申告 USB {2}
+devAudio = オーディオ機器
+devHid = キーボード・マウスなど
+devCamera = カメラ
+devPrinter = プリンター
+devStorage = ストレージ
+devHub = USB ハブ
+devVideo = ビデオ機器
+devWireless = 無線通信機器
+devOther = USB 機器
+genUsb2 = USB 2.0 High Speed
+genUsb11 = USB 1.1 Full Speed
+genUsb10 = USB 1.0/1.1 Low Speed
+genPerLane = {0}／レーン ×{1}
+
+# ---- 判定 ----
+vFailedEnum = 機器を認識できていません。ケーブルの断線・接触不良か、機器側の故障が疑われます。別のケーブルに差し替えて同じ症状が出るか確認してください。
+vGeneralFail = 接続エラーが発生しています。ケーブルとコネクタの汚れ・変形を確認してください。
+vOvercurrent = 過電流を検出しました。ケーブルまたは機器の内部ショートの可能性があります。すぐに取り外してください。
+vNotEnoughPower = 電力が不足しています。電源線の細いケーブル、長すぎるケーブル、またはセルフパワーでないハブが原因になりやすいところです。
+vNotEnoughBandwidth = 帯域が不足しています。同じハブにつながっている機器を減らしてください。
+vNested = ハブの多段接続が深すぎます。PC 本体のポートに近づけてください。
+vLegacyHub = 古い規格のハブ経由でつながっています。ハブを介さず直結すると改善する場合があります。
+vEnumerating = 認識処理の途中です。この状態が続く場合はケーブルの接触不良が疑われます。
+vPortUsb2 = つないでいるポート自体が USB 2.0 です。ケーブルではなくポートを変えてください。
+vGen2AtGen1 = 機器は 10Gbps（Gen 2）に対応していますが、5Gbps（Gen 1）でリンクしています。Gen 2 対応をうたっていないケーブルか、ポート側が Gen 1 までのどちらかです。別のケーブルに替えて変わらなければ、ポートが Gen 1 までと考えてください。
+vUsb3AtUsb2 = USB 3.x 対応の機器が USB 2.0 の速度で動作しています。ケーブルに USB 3.x 用の線が入っていないか、その線が断線している可能性が高い状態です。
+vUsb3AtUsb2C = Type-C どうしでも、充電専用や USB 2.0 相当のケーブルは珍しくありません。
+vUsb3AtUsb2A = 青い端子の USB 3.x 用ケーブルに交換して再確認してください。
+vTwoLane = 2 レーン（Gen 2x2・20Gbps）前提の機器ですが、その速度でリンクしていません。20Gbps 対応をうたう Type-C ケーブルが必要です。
+vGood10 = 10Gbps（Gen 2）以上でリンクしています。ケーブルは高速側の線まで正しく機能しています。
+vGood5 = 5Gbps（Gen 1）でリンクしています。この機器の上限どおりです。
+vGoodNormal = この機器の規格どおりの速度でリンクしています。
+
+# ---- レポート ----
+repTitle = ケーブル診断 Tsunagu レポート
+repCreated = 作成日時: {0}
+repMachine = コンピューター: {0}
+repSecConn = ■ 接続診断
+repSecSpeed = ■ 転送速度
+repSecStab = ■ 接続の安定性
+repSecPower = ■ 給電
+repNotRun = （測定していません）
+repWrite = 書き込み: {0} MB/s
+repRead = 読み出し: {0} MB/s
+repVerdict = 判定: {0}
+repPowerLine = 電力: {0} W／電圧: {1} V／残量: {2} %
+saveDialogTitle = 診断レポートの保存
+saveFilter = テキストファイル (*.txt)|*.txt
+saveFileName = ケーブル診断_{0}.txt
+saveError = 保存できませんでした。\n{0}

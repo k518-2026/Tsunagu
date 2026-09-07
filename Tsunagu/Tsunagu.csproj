@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>Tsunagu</RootNamespace>
+    <AssemblyName>Tsunagu</AssemblyName>
+    <Product>ケーブル診断 Tsunagu</Product>
+    <AssemblyTitle>ケーブル診断 Tsunagu</AssemblyTitle>
+    <Version>1.0.0</Version>
+    <Platforms>AnyCPU;x64</Platforms>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+	  <!-- 単一ファイルとして出力する -->
+	  <PublishSingleFile>true</PublishSingleFile>
+	  <!-- 単一ファイルを圧縮してファイルサイズを削減する -->
+	  <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+	  <!-- ネイティブDLLを一時フォルダに自己展開して読み込めるようにする -->
+	  <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+	  <!-- 【重要】ランタイムを含める（自己完結型）にする設定 -->
+	  <SelfContained>true</SelfContained>
+	  <!-- 【重要】対象のOSとアーキテクチャを指定（例: Windows 64bit） -->
+	  <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 言語ファイルは実行ファイルに埋め込む。実行ファイルの隣に lang フォルダーを
+         作って .lang を置けば、再ビルドなしで言語を足せる -->
+    <EmbeddedResource Include="Localization\Strings\*.lang" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="app.ico" />
+  </ItemGroup>
+
+</Project>

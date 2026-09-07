@@ -1,0 +1,223 @@
+# Tsunagu 线缆检测 — 简体中文
+# 格式: key = 文本   /  {0} 为占位符，请保持顺序。
+# 使用 \n 换行。以 # 开头的行为注释。
+
+_name = 简体中文
+uiFont = Microsoft YaHei UI, Segoe UI
+
+# ---- 通用 ----
+appTitle = Tsunagu 线缆检测
+langLabel = 语言
+saveReport = 保存报告
+tabConnection = 连接诊断
+tabSpeed = 传输速度
+tabStability = 连接稳定性
+tabPower = 供电
+tabHelp = 使用说明
+
+# ---- 顶部结论 ----
+headStart = 开始检测
+headStartSub = 请先用要检测的线缆连接设备，然后按下方的「开始检测」。
+headNoDevice = 未发现设备
+headNoDeviceSub = 请用要检测的线缆连接设备后重新检测。如果设备能充电却始终不出现，说明这是一条只能充电的线缆。
+headFaults = {0} 项问题
+headFaultsSub = 其中有很可能通过更换线缆解决的项目。请查看下方的红色内容。
+headCautions = {0} 项提醒
+headCautionsSub = 存在速度低于应有水平，或者连接方式勉强的情况。
+headOk = 没有问题
+headOkSub = {0} 台设备全部以标称速度连接。
+headStable = 稳定
+headDetach = 断开 {0} 次
+reportSaved = 报告已保存: {0}
+
+# ---- 连接诊断 ----
+connHint = 比较已连接设备「支持的速度」与「实际达到的速度」。两者有差距，说明是线缆或接口在拖后腿。
+btnScan = 开始检测
+chkEmptyPorts = 同时显示空闲接口
+scanning = 正在检查…
+scanDone = 已识别 {0} 台设备（{1}）
+scanFailed = 读取失败: {0}
+
+# ---- 传输速度 ----
+speedHint = 向 U 盘或移动硬盘写入真实数据再读回，测量实际通过线缆的速度。测试用的临时文件会在结束时删除。
+lblDrive = 驱动器
+btnReload = 重新载入
+lblSize = 大小
+btnMeasure = 开始测量
+btnCancelMeasure = 中止
+colWrite = 写入
+colRead = 读取
+speedNote = 测量结果不仅取决于线缆，也取决于存储介质本身的性能。在同一个驱动器上只更换线缆来比较，最为可靠。
+benchSelectDrive = 请选择要测量的驱动器。
+benchNoSpace = 可用空间不足。请选择更小的容量或换一个驱动器。
+benchCancelled = 已中止测量。
+benchDone = 已对 {0} 以 {1} MB 测量（{2}）
+benchProgWrite = 正在写入… {0}%
+benchProgRead = 正在读取… {0}%
+benchErrCreate = 无法创建测试文件。请选择可写入的驱动器。
+benchErrWrite = 写入失败。请确认可用空间与线缆连接。
+benchErrRead = 读取失败。传输过程中连接可能已中断。
+bench20 = 实测速度相当于 USB 3.2 Gen 2x2（20Gbps），正在以双通道连接。
+bench10 = 实测速度相当于 USB 3.2 Gen 2x1（10Gbps，旧称 USB 3.1 Gen 2）。
+bench5 = 实测速度相当于 USB 3.2 Gen 1（5Gbps，旧称 USB 3.0）。
+benchUsb2 = 速度停在 USB 2.0（480Mbps）水平。如果设备支持 USB 3.x，可能线缆本身只是 USB 2.0 规格，或者内部已断线。不过存储介质本身较慢时也会是这个数值。
+benchSlow = 实测速度极低。可能是接触不良、延长过度，或存储介质老化。请换一条线缆重新测量。
+driveNoLabel = (无卷标)
+driveDisplay = {0}  {1}  ［{2}／可用 {3} GB］
+busOther = 其他
+
+# ---- 连接稳定性 ----
+stabHint = 监视期间请轻轻活动线缆，或弯折靠近接头的部位。接近断线的线缆会在这里表现为断开。
+btnMonitorStart = 开始监视
+btnMonitorStop = 结束监视
+stabIdle = 按「开始监视」后，将开始统计断开与重新连接的次数。
+stabPrompt = 监视中（{0}）。请试着轻轻活动接头和线缆根部。
+stabNoEvents = {0} 内没有发生任何断开。连接稳定。
+stabFew = {0} 内断开 {1} 次、重新连接 {2} 次。如果不是自己拔插的，请检查接头是否松动。
+stabMany = {0} 内断开 {1} 次、重新连接 {2} 次。这是线缆接近断裂或触点磨损的典型表现，建议更换。
+stabStatus = 监视中 {0}　断开 {1} 次／重连 {2} 次
+logStart = {0}  已开始监视（识别到 {1} 台）
+logStop = {0}  已结束监视（经过 {1}）
+logAttach = {0}  连接: {1}
+logDetach = {0}  断开: {1}
+
+# ---- 供电 ----
+powHint = 用要检测的线缆给这台电脑充电，同时测量，就能知道该线缆实际能通过多少瓦。
+btnMeasurePower = 开始测量
+chkAutoRefresh = 每 2 秒刷新
+colWatt = 通过的功率
+colVolt = 电压
+colBattery = 电池电量
+powNote = 没有电池的台式机无法测量。这种情况请以手机上的充电提示来比较。
+powNoBattery = 这台电脑没有电池，无法测量供电。用于手机的线缆，请以手机上的「快速充电」提示来判断。
+powNoSource = 当前没有外部供电。请先用要检测的线缆接上充电器再测量。
+powDischarging = 已接入电源却仍在放电（消耗 {0} W）。线缆或充电器的输出不足以支撑电脑的耗电。
+powHigh = 正在以 {0} W 充电。USB PD 高功率供电正常。
+powGood = 正在以 {0} W 充电。作为 USB PD 是充足的供电量。
+powLow = 正在以 {0} W 充电。如果这套组合本应更快，可能线缆不支持 PD，或者接头接触不良。
+powVeryLow = 只有 {0} W 通过。这是只能充电的细线缆，或电源线受损时的典型数值。
+powUnknown = 无法读取充电功率。电量已满，或电池不报告功率时会出现这种情况。
+
+# ---- 使用说明 ----
+helpStepsTitle = 判断线缆好坏的步骤
+helpStep1 = 1. 用要检测的线缆连接设备，在［连接诊断］确认速度有没有被限制。
+helpStep2 = 2. 如果是 USB 存储设备，在［传输速度］实测。
+helpStep3 = 3. 让［连接稳定性］保持运行，轻轻弯折线缆，确认是否出现断开。
+helpStep4 = 4. 如果用于充电，在［供电］查看通过多少瓦。
+helpStep5 = 5. 保持同一设备、同一接口，只更换线缆并从第 1 步重复，就能分清问题出在线缆还是设备。
+helpChargeTitle = 插上设备却什么都没出现时
+helpChargeBody = 如果设备在［连接诊断］中完全不出现、却能正常充电，说明这条线缆没有接通数据线，是只能充电的线缆。附赠品和廉价线缆中很常见。数据线断线时也是同样的症状。
+helpNamesTitle = USB 名称对照
+helpNamesNote = 同一个速度有三种叫法。连接诊断会把现行名称、旧称和标识名一起显示出来。
+colTotal = 总速度
+colCurrentName = 现行正式名称
+colLegacy = 旧称
+colMarketing = 标识名
+helpNoLegacy = 无（USB 3.2 新增）
+helpLegacyGen1 = USB 3.0／USB 3.1 Gen 1
+helpLegacyGen2 = USB 3.1 Gen 2
+helpLimitTitle = 能识别到什么程度
+helpLimit1 = 每通道的速度（5Gbps 还是 10Gbps，也就是 Gen 1 还是 Gen 2），是直接从设备的 BOS 描述符中以 Gbps 为单位读取的，因此可以确定地区分。
+helpLimit2 = USB 3.0 与 USB 3.1 Gen 1 是同一个 5Gbps 规格的两个名字。既然实体相同，任何工具都无法区分。
+helpLimit3 = 10Gbps（Gen 2x1）与 20Gbps（Gen 2x2），Windows 都只报告为 SuperSpeedPlus。设备声明需要双通道时会照此显示，但最终请用［传输速度］的实测值确认。大致超过每秒 1,000MB 即为 20Gbps 连接。
+helpUnknownTitle = 这个程序无法得知的事
+helpUnknownBody = 软件能看到的，只有连接设备后的通信结果。线缆本身的电阻、E-Marker 芯片的内容、屏蔽质量等都无法测量。若要在不接设备的情况下检测线缆，需要专用的线缆测试仪。
+helpColorTitle = 判定颜色
+helpColorGood = 绿 … 按规格正常工作。
+helpColorCaution = 橙 … 低于应有速度，或连接方式勉强。
+helpColorFault = 红 … 建议更换线缆。
+helpLangTitle = 增加语言
+helpLangBody = 在可执行文件旁建立 lang 文件夹，复制一份现有的语言文件并替换译文，无需重新编译即可增加语言。文件名即语言代码（例如 fr.lang）。
+
+# ---- 树形显示 ----
+ctrlDefault = USB 主机控制器
+ctrlOpenFail = 无法打开控制器
+rootHubFail = 无法获取根集线器名称
+hubRoot = 根集线器（电脑内置）
+hub20 = USB 2.0 集线器
+hub30 = USB 3.x 集线器
+hubGeneric = USB 集线器
+hubSub = {0}／{1} 个接口
+portTitle = 接口 {0}: {1}
+portEmptyTitle = 接口 {0}（未连接）
+portLabel = 接口 {0}
+portStateFail = 无法获取状态
+linkPrefix = 当前连接: {0}
+capPrefix = 设备能力: {0}
+portPrefix = 接口: {0}
+sepSlash = ／
+genOperating = 以 {0} 运行中
+genSpeedParen = （{0}）
+genLegacyPart = ／旧称 {0}
+genMarketingPart = ／标识名 {0}
+linkSsp = 以 USB 3.2 Gen 2（每通道 10Gbps）运行中　※是否为双通道（Gen 2x2、20Gbps）无法从系统判断，请用［传输速度］的实测值确认
+capNoBosSsp = 支持 10Gbps（来自集线器的报告，未取得 BOS 信息）
+capNoBosSs = 支持 5Gbps（来自集线器的报告，未取得 BOS 信息）
+capNoBosUsb3 = 声明支持 USB 3.x（无更多信息）
+capNoBosGeneric = USB {0} 设备
+capUsb2Only = USB 2.0 及以下（支持 {0}）
+capUnknown = 不明
+capMain = 每通道最高 {0} → {1}
+capLegacyPart = （旧称 {0}）
+capSpeedsPart = 　支持速度 {0}
+capTwoLane = 　需要双通道的设备
+capPd = 　支持 PD
+capAltMode = 　具备 Alternate Mode
+portTypeC = USB Type-C 接口
+portNotTypeC = 非 Type-C（Type-A 等）
+portUsb3 = 接口支持 USB 3.x
+portUsb2Only = 接口仅支持 USB 2.0
+portHub3 = USB 3.x 集线器上的接口
+portCompanion = 与 USB 2.0 侧成对的接口
+portInternal = 内部连接（机内）
+idText = VID_{0} PID_{1}／声明 USB {2}
+devAudio = 音频设备
+devHid = 键盘、鼠标等
+devCamera = 摄像头
+devPrinter = 打印机
+devStorage = 存储设备
+devHub = USB 集线器
+devVideo = 视频设备
+devWireless = 无线通信设备
+devOther = USB 设备
+genUsb2 = USB 2.0 High Speed
+genUsb11 = USB 1.1 Full Speed
+genUsb10 = USB 1.0/1.1 Low Speed
+genPerLane = 每通道 {0} ×{1}
+
+# ---- 判定 ----
+vFailedEnum = 无法识别设备。可能是线缆断线、接触不良，或设备本身故障。请换一条线缆确认症状是否相同。
+vGeneralFail = 发生连接错误。请检查线缆和接头是否有污渍或变形。
+vOvercurrent = 检测到过流。线缆或设备内部可能短路，请立即拔下。
+vNotEnoughPower = 电力不足。电源线较细的线缆、过长的线缆，或非自供电的集线器都容易造成这种情况。
+vNotEnoughBandwidth = 带宽不足。请减少连接在同一集线器上的设备。
+vNested = 集线器串联层数过多。请连接到更靠近电脑本体的接口。
+vLegacyHub = 通过旧规格的集线器连接。不经集线器直接连接可能会改善。
+vEnumerating = 正在识别中。若一直保持这个状态，可能是线缆接触不良。
+vPortUsb2 = 所连接的接口本身就是 USB 2.0。请更换接口而不是线缆。
+vGen2AtGen1 = 设备支持 10Gbps（Gen 2），但以 5Gbps（Gen 1）连接。可能线缆未标称支持 Gen 2，也可能接口只到 Gen 1。换一条线缆若无变化，则应判断为接口只到 Gen 1。
+vUsb3AtUsb2 = 支持 USB 3.x 的设备正以 USB 2.0 速度运行。很可能线缆内没有 USB 3.x 用的线，或该部分已断线。
+vUsb3AtUsb2C = 即使两端都是 Type-C，只能充电或仅相当于 USB 2.0 的线缆也并不少见。
+vUsb3AtUsb2A = 请换成 USB 3.x 用的线缆（接头通常为蓝色）后再确认。
+vTwoLane = 这是以双通道（Gen 2x2、20Gbps）为前提的设备，但未以该速度连接。需要标称支持 20Gbps 的 Type-C 线缆。
+vGood10 = 以 10Gbps（Gen 2）以上连接。线缆的高速线路工作正常。
+vGood5 = 以 5Gbps（Gen 1）连接，已达到该设备的上限。
+vGoodNormal = 以该设备规格应有的速度连接。
+
+# ---- 报告 ----
+repTitle = Tsunagu 线缆检测报告
+repCreated = 创建时间: {0}
+repMachine = 计算机: {0}
+repSecConn = ■ 连接诊断
+repSecSpeed = ■ 传输速度
+repSecStab = ■ 连接稳定性
+repSecPower = ■ 供电
+repNotRun = （未测量）
+repWrite = 写入: {0} MB/s
+repRead = 读取: {0} MB/s
+repVerdict = 判定: {0}
+repPowerLine = 功率: {0} W／电压: {1} V／电量: {2} %
+saveDialogTitle = 保存诊断报告
+saveFilter = 文本文件 (*.txt)|*.txt
+saveFileName = 线缆检测_{0}.txt
+saveError = 无法保存。\n{0}

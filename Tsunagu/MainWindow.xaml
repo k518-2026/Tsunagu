@@ -1,0 +1,316 @@
+<Window x:Class="Tsunagu.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:loc="clr-namespace:Tsunagu.Localization"
+        Title="{loc:T appTitle}" Height="760" Width="1020" MinHeight="560" MinWidth="860"
+        Background="{StaticResource Paper}"
+        Foreground="{StaticResource Ink}"
+        FontFamily="{loc:T uiFont}"
+        UseLayoutRounding="True">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- 判定を最初に見せる読み取り帯 -->
+        <Border Grid.Row="0" Background="{StaticResource Panel}" Padding="20,16">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="{loc:T appTitle}" FontSize="12"
+                               Foreground="{StaticResource PanelSub}"/>
+                    <TextBlock x:Name="HeadlineText" Style="{StaticResource Readout}"
+                               Text="{loc:T headStart}" Margin="0,4,0,0"/>
+                    <TextBlock x:Name="HeadlineSub" FontSize="12.5" Foreground="{StaticResource PanelSub}"
+                               Text="{loc:T headStartSub}"
+                               Margin="0,4,0,0" MaxWidth="640" HorizontalAlignment="Left"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Bottom">
+                    <TextBlock Text="{loc:T langLabel}" Foreground="{StaticResource PanelSub}"
+                               FontSize="12" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                    <ComboBox x:Name="LanguageBox" Width="132" VerticalAlignment="Center"
+                              DisplayMemberPath="Name" SelectedValuePath="Code"
+                              SelectionChanged="Language_Changed"/>
+                    <Button x:Name="SaveReportButton" Style="{StaticResource Secondary}"
+                            Content="{loc:T saveReport}" Margin="10,0,0,0" Click="SaveReport_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <TabControl Grid.Row="1" Margin="14" BorderBrush="{StaticResource Hairline}" Background="White">
+
+            <!-- ===================== 接続診断 ===================== -->
+            <TabItem Header="{loc:T tabConnection}">
+                <Grid Margin="14">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Style="{StaticResource Caption}" Margin="0,0,0,10"
+                               Text="{loc:T connHint}"/>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,12">
+                        <Button x:Name="ScanButton" Content="{loc:T btnScan}" Click="Scan_Click"/>
+                        <CheckBox x:Name="ShowEmptyPorts" Content="{loc:T chkEmptyPorts}" Margin="14,0,0,0"/>
+                        <TextBlock x:Name="ScanStatus" Style="{StaticResource Caption}"
+                                   VerticalAlignment="Center" Margin="14,0,0,0"/>
+                    </StackPanel>
+
+                    <Border Grid.Row="2" Style="{StaticResource Card}" Padding="4">
+                        <TreeView x:Name="UsbTree" BorderThickness="0" Background="Transparent">
+                            <TreeView.ItemContainerStyle>
+                                <Style TargetType="TreeViewItem">
+                                    <Setter Property="IsExpanded" Value="True"/>
+                                    <Setter Property="Padding" Value="2"/>
+                                </Style>
+                            </TreeView.ItemContainerStyle>
+                            <TreeView.ItemTemplate>
+                                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                                    <StackPanel Margin="0,4,0,8" MaxWidth="760" HorizontalAlignment="Left">
+                                        <TextBlock Text="{Binding Title}" FontWeight="SemiBold"/>
+                                        <TextBlock Text="{Binding Subtitle}" Style="{StaticResource Caption}"
+                                                   Visibility="{Binding Subtitle, Converter={StaticResource EmptyToCollapsed}}"/>
+                                        <TextBlock Text="{Binding LinkText}" Style="{StaticResource Caption}" FontSize="12"
+                                                   Foreground="{StaticResource Ink}"
+                                                   Visibility="{Binding LinkText, Converter={StaticResource EmptyToCollapsed}}"/>
+                                        <TextBlock Text="{Binding CapabilityText}" Style="{StaticResource Caption}"
+                                                   Visibility="{Binding CapabilityText, Converter={StaticResource EmptyToCollapsed}}"/>
+                                        <TextBlock Text="{Binding PortText}" Style="{StaticResource Caption}"
+                                                   Visibility="{Binding PortText, Converter={StaticResource EmptyToCollapsed}}"/>
+                                        <TextBlock Text="{Binding IdText}" Style="{StaticResource Caption}"
+                                                   FontFamily="{StaticResource ReadoutFont}" FontSize="11"
+                                                   Visibility="{Binding IdText, Converter={StaticResource EmptyToCollapsed}}"/>
+                                        <TextBlock Text="{Binding Verdict}" FontSize="12"
+                                                   Foreground="{Binding VerdictBrush}" Margin="0,3,0,0"
+                                                   Visibility="{Binding Verdict, Converter={StaticResource EmptyToCollapsed}}"/>
+                                    </StackPanel>
+                                </HierarchicalDataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
+                    </Border>
+                </Grid>
+            </TabItem>
+
+            <!-- ===================== 転送速度 ===================== -->
+            <TabItem Header="{loc:T tabSpeed}">
+                <Grid Margin="14">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Style="{StaticResource Caption}" Margin="0,0,0,10"
+                               Text="{loc:T speedHint}"/>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,12">
+                        <TextBlock Text="{loc:T lblDrive}" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                        <ComboBox x:Name="DriveBox" Width="380" DisplayMemberPath="Display"/>
+                        <Button x:Name="RefreshDrivesButton" Style="{StaticResource Secondary}"
+                                Content="{loc:T btnReload}" Margin="8,0,0,0" MinWidth="88" Click="RefreshDrives_Click"/>
+                        <TextBlock Text="{loc:T lblSize}" VerticalAlignment="Center" Margin="16,0,8,0"/>
+                        <ComboBox x:Name="SizeBox" Width="110"/>
+                        <Button x:Name="BenchButton" Content="{loc:T btnMeasure}" Margin="12,0,0,0" Click="Bench_Click"/>
+                    </StackPanel>
+
+                    <Border Grid.Row="2" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <Grid Margin="0,0,0,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="{loc:T colWrite}" Style="{StaticResource Caption}"/>
+                                    <TextBlock x:Name="WriteValue" Text="—" FontSize="24"
+                                               FontFamily="{StaticResource ReadoutFont}"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Text="{loc:T colRead}" Style="{StaticResource Caption}"/>
+                                    <TextBlock x:Name="ReadValue" Text="—" FontSize="24"
+                                               FontFamily="{StaticResource ReadoutFont}"/>
+                                </StackPanel>
+                            </Grid>
+                            <TextBlock x:Name="BenchStatus" Style="{StaticResource Caption}"/>
+                            <TextBlock x:Name="BenchVerdict" Margin="0,6,0,0" FontSize="12.5"/>
+                        </StackPanel>
+                    </Border>
+
+                    <TextBlock Grid.Row="3" Style="{StaticResource Caption}" VerticalAlignment="Top" Margin="0,12,0,0"
+                               Text="{loc:T speedNote}"/>
+                </Grid>
+            </TabItem>
+
+            <!-- ===================== 接続の安定性 ===================== -->
+            <TabItem Header="{loc:T tabStability}">
+                <Grid Margin="14">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Style="{StaticResource Caption}" Margin="0,0,0,10"
+                               Text="{loc:T stabHint}"/>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,12">
+                        <Button x:Name="MonitorButton" Content="{loc:T btnMonitorStart}" Click="Monitor_Click"/>
+                        <TextBlock x:Name="MonitorStatus" Style="{StaticResource Caption}"
+                                   VerticalAlignment="Center" Margin="14,0,0,0"/>
+                    </StackPanel>
+
+                    <Border Grid.Row="2" Style="{StaticResource Card}" Margin="0,0,0,12">
+                        <TextBlock x:Name="MonitorVerdict" FontSize="12.5" Text="{loc:T stabIdle}"/>
+                    </Border>
+
+                    <Border Grid.Row="3" Style="{StaticResource Card}" Padding="4">
+                        <ListBox x:Name="MonitorLog" BorderThickness="0" Background="Transparent" DisplayMemberPath="Text"
+                                 FontFamily="{StaticResource ReadoutFont}" FontSize="12"/>
+                    </Border>
+                </Grid>
+            </TabItem>
+
+            <!-- ===================== 給電 ===================== -->
+            <TabItem Header="{loc:T tabPower}">
+                <Grid Margin="14">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Style="{StaticResource Caption}" Margin="0,0,0,10"
+                               Text="{loc:T powHint}"/>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,12">
+                        <Button x:Name="PowerButton" Content="{loc:T btnMeasurePower}" Click="Power_Click"/>
+                        <CheckBox x:Name="AutoRefreshPower" Content="{loc:T chkAutoRefresh}" Margin="14,0,0,0"/>
+                    </StackPanel>
+
+                    <Border Grid.Row="2" Style="{StaticResource Card}">
+                        <StackPanel>
+                            <Grid Margin="0,0,0,10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0">
+                                    <TextBlock Text="{loc:T colWatt}" Style="{StaticResource Caption}"/>
+                                    <TextBlock x:Name="WattValue" Text="—" FontSize="24"
+                                               FontFamily="{StaticResource ReadoutFont}"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock Text="{loc:T colVolt}" Style="{StaticResource Caption}"/>
+                                    <TextBlock x:Name="VoltValue" Text="—" FontSize="24"
+                                               FontFamily="{StaticResource ReadoutFont}"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2">
+                                    <TextBlock Text="{loc:T colBattery}" Style="{StaticResource Caption}"/>
+                                    <TextBlock x:Name="PercentValue" Text="—" FontSize="24"
+                                               FontFamily="{StaticResource ReadoutFont}"/>
+                                </StackPanel>
+                            </Grid>
+                            <TextBlock x:Name="PowerVerdict" FontSize="12.5"/>
+                        </StackPanel>
+                    </Border>
+
+                    <TextBlock Grid.Row="3" Style="{StaticResource Caption}" VerticalAlignment="Top" Margin="0,12,0,0"
+                               Text="{loc:T powNote}"/>
+                </Grid>
+            </TabItem>
+
+            <!-- ===================== 使い方 ===================== -->
+            <TabItem Header="{loc:T tabHelp}">
+                <ScrollViewer Margin="14" VerticalScrollBarVisibility="Auto">
+                    <StackPanel MaxWidth="720" HorizontalAlignment="Left">
+
+                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T helpStepsTitle}"/>
+                        <TextBlock Style="{StaticResource Caption}" Margin="0,0,0,4" Text="{loc:T helpStep1}"/>
+                        <TextBlock Style="{StaticResource Caption}" Margin="0,0,0,4" Text="{loc:T helpStep2}"/>
+                        <TextBlock Style="{StaticResource Caption}" Margin="0,0,0,4" Text="{loc:T helpStep3}"/>
+                        <TextBlock Style="{StaticResource Caption}" Margin="0,0,0,4" Text="{loc:T helpStep4}"/>
+                        <TextBlock Style="{StaticResource Caption}" Margin="0,0,0,16" Text="{loc:T helpStep5}"/>
+
+                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T helpChargeTitle}"/>
+                        <TextBlock Style="{StaticResource Caption}" Margin="0,0,0,16" Text="{loc:T helpChargeBody}"/>
+
+                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T helpNamesTitle}"/>
+                        <TextBlock Style="{StaticResource Caption}" Margin="0,0,0,8" Text="{loc:T helpNamesNote}"/>
+                        <Border Style="{StaticResource Card}" Padding="12" Margin="0,0,0,16">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="90"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="0" Grid.Column="0" Text="{loc:T colTotal}" FontWeight="SemiBold" FontSize="12" Margin="0,0,8,6"/>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Text="{loc:T colCurrentName}" FontWeight="SemiBold" FontSize="12" Margin="0,0,8,6"/>
+                                <TextBlock Grid.Row="0" Grid.Column="2" Text="{loc:T colLegacy}" FontWeight="SemiBold" FontSize="12" Margin="0,0,8,6"/>
+                                <TextBlock Grid.Row="0" Grid.Column="3" Text="{loc:T colMarketing}" FontWeight="SemiBold" FontSize="12" Margin="0,0,0,6"/>
+
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="5Gbps" FontSize="12" Margin="0,0,8,4"/>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text="USB 3.2 Gen 1x1" FontSize="12" Margin="0,0,8,4"/>
+                                <TextBlock Grid.Row="1" Grid.Column="2" Text="{loc:T helpLegacyGen1}" FontSize="12" Margin="0,0,8,4"/>
+                                <TextBlock Grid.Row="1" Grid.Column="3" Text="USB 5Gbps" FontSize="12" Margin="0,0,0,4"/>
+
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="10Gbps" FontSize="12" Margin="0,0,8,4"/>
+                                <TextBlock Grid.Row="2" Grid.Column="1" Text="USB 3.2 Gen 2x1" FontSize="12" Margin="0,0,8,4"/>
+                                <TextBlock Grid.Row="2" Grid.Column="2" Text="{loc:T helpLegacyGen2}" FontSize="12" Margin="0,0,8,4"/>
+                                <TextBlock Grid.Row="2" Grid.Column="3" Text="USB 10Gbps" FontSize="12" Margin="0,0,0,4"/>
+
+                                <TextBlock Grid.Row="3" Grid.Column="0" Text="10Gbps" FontSize="12" Margin="0,0,8,4"/>
+                                <TextBlock Grid.Row="3" Grid.Column="1" Text="USB 3.2 Gen 1x2" FontSize="12" Margin="0,0,8,4"/>
+                                <TextBlock Grid.Row="3" Grid.Column="2" Text="{loc:T helpNoLegacy}" FontSize="12" Margin="0,0,8,4"/>
+                                <TextBlock Grid.Row="3" Grid.Column="3" Text="USB 10Gbps" FontSize="12" Margin="0,0,0,4"/>
+
+                                <TextBlock Grid.Row="4" Grid.Column="0" Text="20Gbps" FontSize="12" Margin="0,0,8,0"/>
+                                <TextBlock Grid.Row="4" Grid.Column="1" Text="USB 3.2 Gen 2x2" FontSize="12" Margin="0,0,8,0"/>
+                                <TextBlock Grid.Row="4" Grid.Column="2" Text="{loc:T helpNoLegacy}" FontSize="12" Margin="0,0,8,0"/>
+                                <TextBlock Grid.Row="4" Grid.Column="3" Text="USB 20Gbps" FontSize="12"/>
+                            </Grid>
+                        </Border>
+
+                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T helpLimitTitle}"/>
+                        <TextBlock Style="{StaticResource Caption}" Margin="0,0,0,4" Text="{loc:T helpLimit1}"/>
+                        <TextBlock Style="{StaticResource Caption}" Margin="0,0,0,4" Text="{loc:T helpLimit2}"/>
+                        <TextBlock Style="{StaticResource Caption}" Margin="0,0,0,16" Text="{loc:T helpLimit3}"/>
+
+                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T helpUnknownTitle}"/>
+                        <TextBlock Style="{StaticResource Caption}" Margin="0,0,0,16" Text="{loc:T helpUnknownBody}"/>
+
+                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T helpColorTitle}"/>
+                        <TextBlock Style="{StaticResource Caption}" Foreground="{StaticResource Good}" Margin="0,0,0,3" Text="{loc:T helpColorGood}"/>
+                        <TextBlock Style="{StaticResource Caption}" Foreground="{StaticResource Caution}" Margin="0,0,0,3" Text="{loc:T helpColorCaution}"/>
+                        <TextBlock Style="{StaticResource Caption}" Foreground="{StaticResource Fault}" Margin="0,0,0,16" Text="{loc:T helpColorFault}"/>
+
+                        <TextBlock Style="{StaticResource SectionTitle}" Text="{loc:T helpLangTitle}"/>
+                        <TextBlock Style="{StaticResource Caption}" Margin="0,0,0,8" Text="{loc:T helpLangBody}"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>

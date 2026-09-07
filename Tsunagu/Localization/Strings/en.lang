@@ -1,0 +1,225 @@
+# Tsunagu Cable Check — English
+# Format: key = text   /  {0} are placeholders; keep their order.
+# Use \n for a line break. Lines starting with # are comments.
+# Copy this file, rename it to a language code (e.g. fr.lang) and translate
+# the right-hand side to add a language.
+
+_name = English
+uiFont = Segoe UI, Yu Gothic UI
+
+# ---- General ----
+appTitle = Tsunagu Cable Check
+langLabel = Language
+saveReport = Save report
+tabConnection = Connection
+tabSpeed = Transfer speed
+tabStability = Stability
+tabPower = Charging
+tabHelp = Guide
+
+# ---- Headline ----
+headStart = Run a check
+headStartSub = Connect the device with the cable you want to test, then press Check below.
+headNoDevice = No devices found
+headNoDeviceSub = Connect a device using the cable and check again. If the device charges but never appears, the cable is charge-only.
+headFaults = {0} problems
+headFaultsSub = Some items are likely fixed by replacing the cable. See the red lines below.
+headCautions = {0} warnings
+headCautionsSub = Some connections are slower than they should be, or the setup is strained.
+headOk = All good
+headOkSub = All {0} devices are linked at their rated speed.
+headStable = Stable
+headDetach = {0} disconnects
+reportSaved = Report saved: {0}
+
+# ---- Connection ----
+connHint = Compares what each connected device supports against the speed it actually reached. A gap means the cable or the port is holding it back.
+btnScan = Check
+chkEmptyPorts = Show empty ports
+scanning = Checking…
+scanDone = Found {0} devices ({1})
+scanFailed = Could not read the USB tree: {0}
+
+# ---- Transfer speed ----
+speedHint = Writes real data to a USB drive and reads it back to measure the throughput that actually passes through the cable. The temporary file is deleted when the test ends.
+lblDrive = Drive
+btnReload = Reload
+lblSize = Size
+btnMeasure = Measure
+btnCancelMeasure = Cancel
+colWrite = Write
+colRead = Read
+speedNote = The result depends on the storage media as well as the cable. Swapping only the cable on the same drive gives the clearest comparison.
+benchSelectDrive = Select a drive to measure.
+benchNoSpace = Not enough free space. Choose a smaller size or another drive.
+benchCancelled = Measurement cancelled.
+benchDone = Measured {0} with {1} MB ({2})
+benchProgWrite = Writing… {0}%
+benchProgRead = Reading… {0}%
+benchErrCreate = Could not create the test file. Choose a writable drive.
+benchErrWrite = Write failed. Check the free space and the cable connection.
+benchErrRead = Read failed. The connection may have dropped during the transfer.
+bench20 = Throughput matches USB 3.2 Gen 2x2 (20Gbps). The link is using two lanes.
+bench10 = Throughput matches USB 3.2 Gen 2x1 (10Gbps, formerly USB 3.1 Gen 2).
+bench5 = Throughput matches USB 3.2 Gen 1 (5Gbps, formerly USB 3.0).
+benchUsb2 = Throughput is capped at USB 2.0 (480Mbps). If the device supports USB 3.x, the cable is either USB 2.0 only or broken inside. Slow storage media can also produce this figure.
+benchSlow = Throughput is extremely low. Suspect a loose contact, too much extension, or worn-out storage media. Measure again with a different cable.
+driveNoLabel = (no label)
+driveDisplay = {0}  {1}  [{2} / {3} GB free]
+busOther = Other
+
+# ---- Stability ----
+stabHint = While monitoring, move the cable and flex it near the connectors. A cable that is close to breaking shows up here as a disconnect.
+btnMonitorStart = Start monitoring
+btnMonitorStop = Stop monitoring
+stabIdle = Press Start monitoring to begin counting disconnects and reconnects.
+stabPrompt = Monitoring ({0}). Try gently moving the connectors and the base of the cable.
+stabNoEvents = No disconnects in {0}. The connection is stable.
+stabFew = {1} disconnects and {2} reconnects in {0}. If you did not unplug anything yourself, check for a loose connector.
+stabMany = {1} disconnects and {2} reconnects in {0}. This is typical of a cable that is close to breaking, or of worn contacts. Replacing it is recommended.
+stabStatus = Monitoring {0}　{1} disconnects / {2} reconnects
+logStart = {0}  Monitoring started ({1} devices detected)
+logStop = {0}  Monitoring stopped (after {1})
+logAttach = {0}  Connected: {1}
+logDetach = {0}  Disconnected: {1}
+
+# ---- Charging ----
+powHint = Charge this PC through the cable you want to test, and you will see how many watts that cable actually carries.
+btnMeasurePower = Measure
+chkAutoRefresh = Refresh every 2 seconds
+colWatt = Power flowing
+colVolt = Voltage
+colBattery = Battery level
+powNote = Desktop PCs without a battery cannot be measured. In that case, compare the charging indicator on your phone instead.
+powNoBattery = This PC has no battery, so charging cannot be measured. For cables used with a phone, judge by the fast-charging indicator on the phone.
+powNoSource = No external power is coming in. Connect a charger with the cable you want to test, then measure.
+powDischarging = The battery is draining even though power is connected ({0} W being used). The cable or the charger cannot supply what the PC consumes.
+powHigh = Charging at {0} W. High-output USB PD is working.
+powGood = Charging at {0} W. That is a healthy USB PD level.
+powLow = Charging at {0} W. If this setup should charge faster, the cable may not support PD, or a connector may be making poor contact.
+powVeryLow = Only {0} W is flowing. This is typical of a thin charge-only cable, or one with damaged power wires.
+powUnknown = The charge rate could not be read. This happens at full charge, or with batteries that do not report a rate.
+
+# ---- Guide ----
+helpStepsTitle = How to tell whether the cable is at fault
+helpStep1 = 1. Connect the device with the cable and see on Connection whether the speed is capped.
+helpStep2 = 2. For USB storage, measure the real throughput on Transfer speed.
+helpStep3 = 3. Leave Stability running and flex the cable to see whether it drops.
+helpStep4 = 4. For charging, check the wattage on Charging.
+helpStep5 = 5. Keep the same device and port, swap in a different cable, and repeat from step 1. That tells you whether the cable or the device is the problem.
+helpChargeTitle = When nothing appears at all
+helpChargeBody = If the device never shows up on Connection but still charges, the cable has no data wires — it is a charge-only cable. Bundled and cheap cables are often like this. A cable with broken data wires behaves the same way.
+helpNamesTitle = USB naming
+helpNamesNote = The same speed carries three different names. The connection check shows the current name, the former name and the marketing name together.
+colTotal = Total speed
+colCurrentName = Current name
+colLegacy = Former name
+colMarketing = Marketing name
+helpNoLegacy = None (new in USB 3.2)
+helpLegacyGen1 = USB 3.0 / USB 3.1 Gen 1
+helpLegacyGen2 = USB 3.1 Gen 2
+helpLimitTitle = What can be identified
+helpLimit1 = The per-lane speed — 5Gbps or 10Gbps, that is Gen 1 or Gen 2 — is read in Gbps straight from the device BOS descriptor, so it is identified rather than guessed.
+helpLimit2 = USB 3.0 and USB 3.1 Gen 1 are the same 5Gbps specification under two names. Since there is nothing to tell apart, no tool can distinguish them.
+helpLimit3 = Windows reports both 10Gbps (Gen 2x1) and 20Gbps (Gen 2x2) as SuperSpeedPlus. When a device declares that it needs two lanes, that is shown, but confirm with the measured value on Transfer speed. Above roughly 1,000 MB/s the link is running at 20Gbps.
+helpUnknownTitle = What this app cannot tell you
+helpUnknownBody = Software only sees the result of communication with a device attached. Conductor resistance, the contents of the E-Marker chip and shielding quality cannot be measured. To test a cable on its own, you need a dedicated cable tester.
+helpColorTitle = Verdict colours
+helpColorGood = Green — working as the specification says.
+helpColorCaution = Amber — slower than it should be, or a strained setup.
+helpColorFault = Red — consider replacing the cable.
+helpLangTitle = Adding a language
+helpLangBody = Create a lang folder next to the executable, copy one of the language files into it and translate the text. The language appears without rebuilding. The file name is the language code (for example fr.lang).
+
+# ---- Tree ----
+ctrlDefault = USB host controller
+ctrlOpenFail = Could not open the controller
+rootHubFail = Could not get the root hub name
+hubRoot = Root hub (built into the PC)
+hub20 = USB 2.0 hub
+hub30 = USB 3.x hub
+hubGeneric = USB hub
+hubSub = {0} / {1} ports
+portTitle = Port {0}: {1}
+portEmptyTitle = Port {0} (empty)
+portLabel = Port {0}
+portStateFail = Could not read the port state
+linkPrefix = Current link: {0}
+capPrefix = Device capability: {0}
+portPrefix = Port: {0}
+sepSlash =  / 
+genOperating = Linked at {0}
+genSpeedParen =  ({0})
+genLegacyPart = , formerly {0}
+genMarketingPart = , marketed as {0}
+linkSsp = Linked at USB 3.2 Gen 2 (10Gbps per lane). Whether it is using two lanes (Gen 2x2, 20Gbps) cannot be determined from the OS — confirm with the measured value on Transfer speed.
+capNoBosSsp = 10Gbps capable (reported by the hub; no BOS data)
+capNoBosSs = 5Gbps capable (reported by the hub; no BOS data)
+capNoBosUsb3 = Declares USB 3.x support (no further detail)
+capNoBosGeneric = USB {0} device
+capUsb2Only = USB 2.0 or below (supports {0})
+capUnknown = unknown
+capMain = Up to {0} per lane → {1}
+capLegacyPart =  (formerly {0})
+capSpeedsPart = 　Supports {0}
+capTwoLane = 　needs two lanes
+capPd = 　PD capable
+capAltMode = 　has Alternate Mode
+portTypeC = USB Type-C connector
+portNotTypeC = Not Type-C (Type-A or similar)
+portUsb3 = Port supports USB 3.x
+portUsb2Only = Port is USB 2.0 only
+portHub3 = Port on a USB 3.x hub
+portCompanion = Paired with a USB 2.0 port
+portInternal = Internal (built into the machine)
+idText = VID_{0} PID_{1} / declares USB {2}
+devAudio = Audio device
+devHid = Keyboard, mouse or similar
+devCamera = Camera
+devPrinter = Printer
+devStorage = Storage
+devHub = USB hub
+devVideo = Video device
+devWireless = Wireless device
+devOther = USB device
+genUsb2 = USB 2.0 High Speed
+genUsb11 = USB 1.1 Full Speed
+genUsb10 = USB 1.0/1.1 Low Speed
+genPerLane = {0} per lane ×{1}
+
+# ---- Verdicts ----
+vFailedEnum = The device is not being recognised. Suspect a broken or badly seated cable, or a fault in the device. Try another cable and see whether the symptom follows.
+vGeneralFail = A connection error occurred. Check the cable and connectors for dirt or deformation.
+vOvercurrent = Overcurrent detected. There may be a short inside the cable or the device. Disconnect it now.
+vNotEnoughPower = Not enough power. Thin power wires, an over-long cable, or a bus-powered hub are the usual causes.
+vNotEnoughBandwidth = Not enough bandwidth. Reduce the number of devices on the same hub.
+vNested = Hubs are chained too deeply. Move the device closer to a port on the PC itself.
+vLegacyHub = Connected through an older hub. Plugging directly into the PC may fix it.
+vEnumerating = Enumeration is still in progress. If it stays this way, suspect a poor cable contact.
+vPortUsb2 = The port itself is USB 2.0. Change the port rather than the cable.
+vGen2AtGen1 = The device supports 10Gbps (Gen 2) but is linked at 5Gbps (Gen 1). Either the cable is not rated for Gen 2, or the port only goes up to Gen 1. If another cable changes nothing, assume the port is Gen 1.
+vUsb3AtUsb2 = A USB 3.x device is running at USB 2.0 speed. Most likely the cable has no USB 3.x wires, or those wires are broken.
+vUsb3AtUsb2C = Even between Type-C ends, charge-only and USB 2.0-class cables are common.
+vUsb3AtUsb2A = Swap in a USB 3.x cable (the type with a blue connector) and check again.
+vTwoLane = The device expects two lanes (Gen 2x2, 20Gbps) but is not linked at that speed. A Type-C cable rated for 20Gbps is required.
+vGood10 = Linked at 10Gbps (Gen 2) or above. The cable's high-speed wires are working correctly.
+vGood5 = Linked at 5Gbps (Gen 1), which is this device's maximum.
+vGoodNormal = Linked at the speed this device is rated for.
+
+# ---- Report ----
+repTitle = Tsunagu Cable Check report
+repCreated = Created: {0}
+repMachine = Computer: {0}
+repSecConn = # Connection
+repSecSpeed = # Transfer speed
+repSecStab = # Stability
+repSecPower = # Charging
+repNotRun = (not measured)
+repWrite = Write: {0} MB/s
+repRead = Read: {0} MB/s
+repVerdict = Verdict: {0}
+repPowerLine = Power: {0} W / Voltage: {1} V / Battery: {2} %
+saveDialogTitle = Save the report
+saveFilter = Text file (*.txt)|*.txt
+saveFileName = CableCheck_{0}.txt
+saveError = Could not save the file.\n{0}

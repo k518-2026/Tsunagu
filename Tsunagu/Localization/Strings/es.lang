@@ -1,0 +1,223 @@
+# Tsunagu Comprobación de cables — Español
+# Formato: clave = texto   /  {0} son marcadores; mantenga su orden.
+# Use \n para un salto de línea. Las líneas que empiezan por # son comentarios.
+
+_name = Español
+uiFont = Segoe UI, Yu Gothic UI
+
+# ---- General ----
+appTitle = Tsunagu Comprobación de cables
+langLabel = Idioma
+saveReport = Guardar informe
+tabConnection = Conexión
+tabSpeed = Velocidad
+tabStability = Estabilidad
+tabPower = Carga
+tabHelp = Guía
+
+# ---- Titular ----
+headStart = Comprobar
+headStartSub = Conecte el dispositivo con el cable que quiere probar y pulse Comprobar.
+headNoDevice = No se ha encontrado ningún dispositivo
+headNoDeviceSub = Conecte un dispositivo con el cable y vuelva a comprobar. Si el dispositivo se carga pero nunca aparece, el cable es solo de carga.
+headFaults = {0} problemas
+headFaultsSub = Hay puntos que probablemente se resuelvan cambiando el cable. Revise las líneas en rojo.
+headCautions = {0} avisos
+headCautionsSub = Alguna conexión va más lenta de lo que debería, o el montaje está forzado.
+headOk = Todo correcto
+headOkSub = Los {0} dispositivos enlazan a su velocidad nominal.
+headStable = Estable
+headDetach = {0} desconexiones
+reportSaved = Informe guardado: {0}
+
+# ---- Conexión ----
+connHint = Compara lo que admite cada dispositivo conectado con la velocidad que alcanza en realidad. Si hay diferencia, el cable o el puerto lo están frenando.
+btnScan = Comprobar
+chkEmptyPorts = Mostrar puertos vacíos
+scanning = Comprobando…
+scanDone = {0} dispositivos detectados ({1})
+scanFailed = No se ha podido leer: {0}
+
+# ---- Velocidad ----
+speedHint = Escribe datos reales en una unidad USB y los vuelve a leer para medir la velocidad que pasa por el cable. El archivo temporal se borra al terminar.
+lblDrive = Unidad
+btnReload = Recargar
+lblSize = Tamaño
+btnMeasure = Medir
+btnCancelMeasure = Cancelar
+colWrite = Escritura
+colRead = Lectura
+speedNote = El resultado depende también del medio de almacenamiento, no solo del cable. Cambiar únicamente el cable en la misma unidad ofrece la comparación más fiable.
+benchSelectDrive = Seleccione una unidad para medir.
+benchNoSpace = No hay espacio libre suficiente. Elija un tamaño menor u otra unidad.
+benchCancelled = Medición cancelada.
+benchDone = {0} medido con {1} MB ({2})
+benchProgWrite = Escribiendo… {0}%
+benchProgRead = Leyendo… {0}%
+benchErrCreate = No se ha podido crear el archivo de prueba. Elija una unidad con permiso de escritura.
+benchErrWrite = Fallo de escritura. Compruebe el espacio libre y la conexión del cable.
+benchErrRead = Fallo de lectura. Puede que la conexión se haya cortado durante la transferencia.
+bench20 = La velocidad corresponde a USB 3.2 Gen 2x2 (20 Gbps). El enlace usa dos carriles.
+bench10 = La velocidad corresponde a USB 3.2 Gen 2x1 (10 Gbps, antes USB 3.1 Gen 2).
+bench5 = La velocidad corresponde a USB 3.2 Gen 1 (5 Gbps, antes USB 3.0).
+benchUsb2 = La velocidad se detiene en el nivel de USB 2.0 (480 Mbps). Si el dispositivo admite USB 3.x, el cable puede ser solo de USB 2.0 o estar roto por dentro. Un medio de almacenamiento lento también da esta cifra.
+benchSlow = La velocidad es muy baja. Sospeche de un mal contacto, demasiada prolongación o un medio de almacenamiento desgastado. Vuelva a medir con otro cable.
+driveNoLabel = (sin etiqueta)
+driveDisplay = {0}  {1}  [{2} / {3} GB libres]
+busOther = Otro
+
+# ---- Estabilidad ----
+stabHint = Mientras vigila, mueva el cable y dóblelo cerca de los conectores. Un cable a punto de romperse aparece aquí como una desconexión.
+btnMonitorStart = Iniciar vigilancia
+btnMonitorStop = Detener vigilancia
+stabIdle = Pulse Iniciar vigilancia para empezar a contar desconexiones y reconexiones.
+stabPrompt = Vigilando ({0}). Pruebe a mover con suavidad los conectores y la base del cable.
+stabNoEvents = Ninguna desconexión en {0}. La conexión es estable.
+stabFew = {1} desconexiones y {2} reconexiones en {0}. Si usted no ha desenchufado nada, compruebe si algún conector está flojo.
+stabMany = {1} desconexiones y {2} reconexiones en {0}. Es el comportamiento típico de un cable a punto de romperse o de contactos desgastados. Conviene sustituirlo.
+stabStatus = Vigilando {0}　{1} desconexiones / {2} reconexiones
+logStart = {0}  Vigilancia iniciada ({1} dispositivos detectados)
+logStop = {0}  Vigilancia detenida (tras {1})
+logAttach = {0}  Conectado: {1}
+logDetach = {0}  Desconectado: {1}
+
+# ---- Carga ----
+powHint = Cargue este PC a través del cable que quiere probar y verá cuántos vatios lleva realmente ese cable.
+btnMeasurePower = Medir
+chkAutoRefresh = Actualizar cada 2 segundos
+colWatt = Potencia
+colVolt = Tensión
+colBattery = Nivel de batería
+powNote = En un PC de sobremesa sin batería no se puede medir. En ese caso, compare con el indicador de carga del teléfono.
+powNoBattery = Este PC no tiene batería, así que no se puede medir la carga. Para cables usados con un teléfono, guíese por el indicador de carga rápida del teléfono.
+powNoSource = No entra alimentación externa. Conecte un cargador con el cable que quiere probar y luego mida.
+powDischarging = La batería se descarga aunque hay alimentación conectada ({0} W consumidos). El cable o el cargador no dan lo que consume el PC.
+powHigh = Cargando a {0} W. USB PD de alta potencia funcionando.
+powGood = Cargando a {0} W. Es un nivel correcto para USB PD.
+powLow = Cargando a {0} W. Si este montaje debería cargar más rápido, puede que el cable no admita PD o que un conector haga mal contacto.
+powVeryLow = Solo pasan {0} W. Es el valor típico de un cable fino solo de carga o con los hilos de alimentación dañados.
+powUnknown = No se ha podido leer la velocidad de carga. Ocurre con la batería llena o con baterías que no informan de este dato.
+
+# ---- Guía ----
+helpStepsTitle = Cómo saber si la culpa es del cable
+helpStep1 = 1. Conecte el dispositivo con el cable y mire en Conexión si la velocidad está limitada.
+helpStep2 = 2. Si es almacenamiento USB, mida la velocidad real en Velocidad.
+helpStep3 = 3. Deje Estabilidad en marcha y doble el cable para ver si se corta.
+helpStep4 = 4. Para carga, mire los vatios en Carga.
+helpStep5 = 5. Con el mismo dispositivo y el mismo puerto, cambie solo el cable y repita desde el paso 1. Así sabrá si el problema es del cable o del dispositivo.
+helpChargeTitle = Cuando no aparece nada
+helpChargeBody = Si el dispositivo no aparece en Conexión pero sí se carga, el cable no tiene hilos de datos: es un cable solo de carga. Es habitual en cables incluidos en la caja y en los muy baratos. Un cable con los hilos de datos rotos se comporta igual.
+helpNamesTitle = Los nombres de USB
+helpNamesNote = La misma velocidad tiene tres nombres distintos. La comprobación muestra juntos el nombre actual, el antiguo y el comercial.
+colTotal = Velocidad total
+colCurrentName = Nombre actual
+colLegacy = Nombre antiguo
+colMarketing = Nombre comercial
+helpNoLegacy = Ninguno (nuevo en USB 3.2)
+helpLegacyGen1 = USB 3.0 / USB 3.1 Gen 1
+helpLegacyGen2 = USB 3.1 Gen 2
+helpLimitTitle = Hasta dónde se puede identificar
+helpLimit1 = La velocidad por carril (5 Gbps o 10 Gbps, es decir Gen 1 o Gen 2) se lee en Gbps directamente del descriptor BOS del dispositivo, así que se identifica, no se supone.
+helpLimit2 = USB 3.0 y USB 3.1 Gen 1 son la misma especificación de 5 Gbps con dos nombres. Al ser lo mismo, ninguna herramienta puede distinguirlos.
+helpLimit3 = Windows informa de 10 Gbps (Gen 2x1) y de 20 Gbps (Gen 2x2) como SuperSpeedPlus en ambos casos. Si el dispositivo declara que necesita dos carriles, se indica, pero confirme con el valor medido en Velocidad. Por encima de unos 1.000 MB/s el enlace va a 20 Gbps.
+helpUnknownTitle = Lo que esta aplicación no puede saber
+helpUnknownBody = El software solo ve el resultado de la comunicación con un dispositivo conectado. La resistencia de los conductores, el contenido del chip E-Marker o la calidad del apantallamiento no se pueden medir. Para probar un cable por sí solo hace falta un comprobador específico.
+helpColorTitle = Colores del diagnóstico
+helpColorGood = Verde: funciona según la especificación.
+helpColorCaution = Ámbar: más lento de lo debido, o montaje forzado.
+helpColorFault = Rojo: conviene cambiar el cable.
+helpLangTitle = Añadir un idioma
+helpLangBody = Cree una carpeta lang junto al ejecutable, copie dentro uno de los archivos de idioma y traduzca el texto. El idioma aparece sin recompilar. El nombre del archivo es el código de idioma (por ejemplo fr.lang).
+
+# ---- Árbol ----
+ctrlDefault = Controladora USB
+ctrlOpenFail = No se ha podido abrir la controladora
+rootHubFail = No se ha podido obtener el nombre del concentrador raíz
+hubRoot = Concentrador raíz (interno del PC)
+hub20 = Concentrador USB 2.0
+hub30 = Concentrador USB 3.x
+hubGeneric = Concentrador USB
+hubSub = {0} / {1} puertos
+portTitle = Puerto {0}: {1}
+portEmptyTitle = Puerto {0} (vacío)
+portLabel = Puerto {0}
+portStateFail = No se ha podido leer el estado
+linkPrefix = Enlace actual: {0}
+capPrefix = Capacidad del dispositivo: {0}
+portPrefix = Puerto: {0}
+sepSlash =  / 
+genOperating = Enlazado a {0}
+genSpeedParen =  ({0})
+genLegacyPart = , antes {0}
+genMarketingPart = , comercialmente {0}
+linkSsp = Enlazado a USB 3.2 Gen 2 (10 Gbps por carril). Si usa dos carriles (Gen 2x2, 20 Gbps) no puede determinarse desde el sistema: confírmelo con el valor medido en Velocidad.
+capNoBosSsp = Admite 10 Gbps (según el concentrador; sin datos BOS)
+capNoBosSs = Admite 5 Gbps (según el concentrador; sin datos BOS)
+capNoBosUsb3 = Declara compatibilidad USB 3.x (sin más detalle)
+capNoBosGeneric = Dispositivo USB {0}
+capUsb2Only = USB 2.0 o inferior (admite {0})
+capUnknown = desconocido
+capMain = Hasta {0} por carril → {1}
+capLegacyPart =  (antes {0})
+capSpeedsPart = 　Admite {0}
+capTwoLane = 　necesita dos carriles
+capPd = 　compatible con PD
+capAltMode = 　con Alternate Mode
+portTypeC = Conector USB Type-C
+portNotTypeC = No es Type-C (Type-A u otro)
+portUsb3 = El puerto admite USB 3.x
+portUsb2Only = El puerto solo llega a USB 2.0
+portHub3 = Puerto de un concentrador USB 3.x
+portCompanion = Emparejado con un puerto USB 2.0
+portInternal = Interno (dentro del equipo)
+idText = VID_{0} PID_{1} / declara USB {2}
+devAudio = Dispositivo de audio
+devHid = Teclado, ratón o similar
+devCamera = Cámara
+devPrinter = Impresora
+devStorage = Almacenamiento
+devHub = Concentrador USB
+devVideo = Dispositivo de vídeo
+devWireless = Dispositivo inalámbrico
+devOther = Dispositivo USB
+genUsb2 = USB 2.0 High Speed
+genUsb11 = USB 1.1 Full Speed
+genUsb10 = USB 1.0/1.1 Low Speed
+genPerLane = {0} por carril ×{1}
+
+# ---- Diagnósticos ----
+vFailedEnum = El dispositivo no se reconoce. Sospeche de un cable roto o mal insertado, o de una avería del dispositivo. Pruebe con otro cable y vea si el síntoma le acompaña.
+vGeneralFail = Se ha producido un error de conexión. Revise si el cable y los conectores tienen suciedad o deformaciones.
+vOvercurrent = Sobrecorriente detectada. Puede haber un cortocircuito dentro del cable o del dispositivo. Desconéctelo ya.
+vNotEnoughPower = Falta potencia. Las causas habituales son hilos de alimentación finos, un cable demasiado largo o un concentrador sin alimentación propia.
+vNotEnoughBandwidth = Falta ancho de banda. Reduzca los dispositivos conectados al mismo concentrador.
+vNested = Hay demasiados concentradores encadenados. Acerque el dispositivo a un puerto del propio PC.
+vLegacyHub = Conectado a través de un concentrador antiguo. Conectarlo directamente al PC puede resolverlo.
+vEnumerating = El reconocimiento sigue en curso. Si se queda así, sospeche de un mal contacto del cable.
+vPortUsb2 = El puerto en sí es USB 2.0. Cambie de puerto en lugar de cambiar el cable.
+vGen2AtGen1 = El dispositivo admite 10 Gbps (Gen 2) pero enlaza a 5 Gbps (Gen 1). O el cable no está homologado para Gen 2, o el puerto solo llega a Gen 1. Si con otro cable no cambia nada, dé por hecho que el puerto es Gen 1.
+vUsb3AtUsb2 = Un dispositivo USB 3.x funciona a velocidad USB 2.0. Lo más probable es que el cable no tenga los hilos de USB 3.x o que estén rotos.
+vUsb3AtUsb2C = Incluso entre extremos Type-C, los cables solo de carga o de clase USB 2.0 son frecuentes.
+vUsb3AtUsb2A = Cambie a un cable USB 3.x (los del conector azul) y vuelva a comprobar.
+vTwoLane = El dispositivo espera dos carriles (Gen 2x2, 20 Gbps) pero no enlaza a esa velocidad. Hace falta un cable Type-C homologado para 20 Gbps.
+vGood10 = Enlazado a 10 Gbps (Gen 2) o más. Los hilos de alta velocidad del cable funcionan correctamente.
+vGood5 = Enlazado a 5 Gbps (Gen 1), que es el máximo de este dispositivo.
+vGoodNormal = Enlazado a la velocidad nominal de este dispositivo.
+
+# ---- Informe ----
+repTitle = Informe de Tsunagu Comprobación de cables
+repCreated = Creado: {0}
+repMachine = Equipo: {0}
+repSecConn = # Conexión
+repSecSpeed = # Velocidad
+repSecStab = # Estabilidad
+repSecPower = # Carga
+repNotRun = (sin medir)
+repWrite = Escritura: {0} MB/s
+repRead = Lectura: {0} MB/s
+repVerdict = Diagnóstico: {0}
+repPowerLine = Potencia: {0} W / Tensión: {1} V / Batería: {2} %
+saveDialogTitle = Guardar el informe
+saveFilter = Archivo de texto (*.txt)|*.txt
+saveFileName = ComprobacionCable_{0}.txt
+saveError = No se ha podido guardar.\n{0}
