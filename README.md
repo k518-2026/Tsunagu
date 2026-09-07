@@ -1,5 +1,8 @@
 # ケーブル診断 Tsunagu
 
+実行ファイルのダウンロード. 
+https://github.com/k518-2026/Tsunagu/releases
+
 USB ケーブルの状態を Windows 上から調べるデスクトップアプリです。WPF（C#／.NET 8）で作ってあり、外部ライブラリは使っていません。`Tsunagu.sln` を Visual Studio 2022 で開き、F5 で実行できます。
 
 ## 対応言語
